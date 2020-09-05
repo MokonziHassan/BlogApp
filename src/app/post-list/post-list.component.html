@@ -1,0 +1,15 @@
+
+<li [ngClass]="{'list-group-item': true,
+'list-group-item-success': post.lovesIt > 0,
+'list-group-item-danger': post.lovesIt === 0 }" *ngFor='let post of posts'>
+    <div style="width:20px;height:20px;background-color:red;"
+    *ngIf="postLovesIt === 0"></div>
+    <h4> {{ post.title }} </h4>      <p>{{ lastUpdate | async | date }}</p>  
+    <p>{{ post.content }}</p>
+    <button class="btn btn-success"  (click)="onLovesIt(post)">Love It</button> 
+      <button class="btn btn-danger"  (click)="onDontLovesIt(post)">Don't Love It</button>
+      <button class="btn btn-danger" (click)='onDeletePost(post)'>Supprimer Post</button>
+    
+  </li>
+  
+
